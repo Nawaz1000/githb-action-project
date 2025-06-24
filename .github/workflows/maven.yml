@@ -83,6 +83,6 @@ jobs:
             pollingTimeoutSec: 600
         env:
           SONAR_TOKEN: ${{ secrets.SONARTOKEN  }}
-          SONAR_HOST_URL: ${{ vars.SONARHOSTURL }} #OPTIONAL
+       #OPTIONAL
          
   
