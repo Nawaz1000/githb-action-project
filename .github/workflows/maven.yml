@@ -64,7 +64,7 @@ jobs:
            distribution: 'temurin'
            cache: maven
         - name: build pacakge
-          run: mvn pacakge
+          run: mvn package
 
         - uses: actions/checkout@v4
           with:
