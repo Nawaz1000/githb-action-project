@@ -63,18 +63,18 @@ jobs:
            java-version: '17'
            distribution: 'temurin'
            cache: maven
-        - name: build pacakge
-          run: mvn package
+        #- name: build pacakge
+         # run: mvn package
 
-        - uses: actions/checkout@v4
-          with:
+        #- uses: actions/checkout@v4
+         # with:
         # Disabling shallow clones is recommended for improving the relevancy of reporting
-            fetch-depth: 0
-        - name: SonarQube Scan
-          uses: SonarSource/sonarqube-scan-action@v5.0.0 # Ex: v4.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
-          env:
-            SONAR_TOKEN: ${{ secrets.SONARTOKEN }}
-            SONAR_HOST_URL: ${{ vars.SONARHOSTURL }}
+           # fetch-depth: 0
+        #- name: SonarQube Scan
+         # uses: SonarSource/sonarqube-scan-action@v5.0.0 # Ex: v4.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
+         # env:
+          #  SONAR_TOKEN: ${{ secrets.SONARTOKEN }}
+          #  SONAR_HOST_URL: ${{ vars.SONARHOSTURL }}
 
         - name: SonarQube Quality Gate check
           id: sonarqube-quality-gate-check
