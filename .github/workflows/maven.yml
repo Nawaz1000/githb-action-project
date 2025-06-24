@@ -38,12 +38,22 @@ jobs:
         run: trivy fs --format table -o fs-report.json .
 
       - name: gitleaks installation
-        run: |
-         curl -L -o gitleaks https://github.com/gitleaks/gitleaks/releases/latest/download/gitleaks-linux-amd64
-         chmod +x gitleaks
-         sudo mv gitleaks /usr/local/bin/gitleaks
-
+        run: sudo apt install gitleaks -y 
       - name: gitleaks code scan
         run: gitleaks detect source . -r gitleaks-report.json -f json
+
+  test:
+    runs-on: self-hosted
+       
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+       java-version: '17'
+       distribution: 'temurin'
+       cache: maven
+    - name: unit test cases
+      run: mvn test
          
   
